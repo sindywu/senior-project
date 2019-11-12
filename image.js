@@ -29,15 +29,12 @@ window.onload = function(){
           snapshot.forEach(function(childSnapshot){
           	index++;
           	console.log(index);
+          	var li = document.createElement('li');
           	var img = document.createElement('img');
-          	if(index ==1){
-          		img.id = "cue-image";
-          		img.src = "img/username/" + item + "/" + index + ".png";
-          	}
-          	else {
-          		img.className="delete";
-          		img.style["display"] = "none";
-          	}
+          	img.className = "cue-image";
+          	img.id = item + "-" + index;
+          	img.src = "img/username/" + item + "/" + index + ".jpg";
+          	li.appendChild(img);
           	document.getElementById('image-cue').appendChild(img);
           });          
         });
@@ -173,7 +170,7 @@ document.getElementById("google").onclick = function(){
   window.open('http://www.google.com/search?q='+document.getElementById('q').value);
 }
 
-function change_pic() {
+/*function change_pic() {
 	if(current_index == 0)
 		ready();
 	document.getElementById("cue-image").src = "img/username/" + item + "/" + listImg[current_index] + ".png";
@@ -209,4 +206,4 @@ $("#image-cue").on("swipeleft", function(event){
 
 $("#image-cue").on("swiperight", function(event){
 	prev_pic();
-});
+});*/

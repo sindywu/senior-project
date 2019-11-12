@@ -26,7 +26,7 @@ window.onload = function(){
       var button = document.createElement('button');
       var image = document.createElement('img');
       button.className = "image";
-      image.src = "img/username/" + key + "/1.png";
+      image.src = "img/username/" + key + "/1.jpg";
       button.id = key;
       button.appendChild(image);
       document.getElementById("images").appendChild(button);
