@@ -1,0 +1,134 @@
+body {
+	margin:0;
+}
+
+button {
+	cursor: pointer;
+}
+
+#nav{
+	position: fixed;
+    width: 98%;
+    display: flex;
+    background: white;
+    padding: 1%;
+    z-index: 1000;
+}
+
+#title {
+	display: inline-block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav-button {
+	display: inline-block;
+}
+
+#back {
+	width: fit-content;
+	float:left;
+	background: none;
+    border: none;
+    padding: 0;
+}
+
+#profile {
+	width: fit-content;
+	float:right;
+	background: none;
+    border: none;
+    padding: 0;
+}
+
+.inner-container {
+	padding: 2%;
+}
+
+#image-cue {
+	padding-bottom: 2%;
+}
+
+img {
+	object-fit: cover;
+    position: relative;
+    width: 100%;
+	border: 1px solid darkgray;
+}
+
+#cues {
+	height: fit-content;
+    padding-bottom: 2%;
+    padding: 2%;
+    padding-top: 5%;
+    background: #efefef;
+}
+
+.cue {
+	margin: 2% 0;
+}
+
+#location-cue {
+	margin-bottom: 1.5%;
+}
+
+#emotion-cue {
+	margin-top: 0;
+}
+
+#answer {
+	width: 100%;
+    margin: 0;
+    border: 2px solid transparent;
+}
+
+.qna {
+	width: 100%;
+    text-align: center;
+    /* border: none; */
+    height: 50vw;
+    margin-bottom: 2%;
+}
+
+#get-the-answer {
+	padding: 2%;
+    width: 100%;
+    margin-bottom: 2%;
+
+}
+
+#delete {
+	width: 100%;
+	padding: 2%;
+}
+
+#memo {
+	padding: 2%;
+    background: lightblue;
+}
+
+#memo-area {
+	display: block;
+    margin: 1% 0;
+    width: 100%;
+    height: 50vw;
+    border: none;
+    background: lightblue;
+    resize: none;
+}
+
+#memo-area:focus {
+	outline: none;
+}
+
+#get-answer {
+	padding: 2%;
+	padding-top: 5%;
+}
+
+.get {
+	width: 100%;
+    height: 8vh;
+    margin-top: 2%;
+}

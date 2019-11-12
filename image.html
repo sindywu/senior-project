@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CHANGE LATER</title>
+    <link href="./image.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/114229a8c4.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+  	<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>-->
+  	<script src="jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <header>
+      <div id="nav">
+        <button class="nav-button" id="back">Back</button>
+        <div id="title">
+          ?????
+        </div>
+        <button class="nav-button" id="profile">Profile</button>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div id="image-page">
+          <div id="cues">
+            <div id="image-cue">
+              <!--<img id="cue-image" src="">-->
+            </div>
+            <div class="cue" id="location-cue">
+
+            </div>
+            <div class="cue" id="emotion-cue">
+
+            </div>
+            <div class="cue" id="temporal-cue">
+
+            </div>
+            <div class="cue" id="description-cue">
+
+            </div>
+          </div>
+          <div class="inner-container">
+            <div id="question">
+              <input class="qna" type="text" name="question" id="q" placeholder="Your Question">
+            </div>
+            <div id="answer">
+              <div id="no-answer">
+                <button id="get-the-answer" disabled>Get the Answer</button>
+              </div>
+              <div id="answered" style="display: none">
+                <input class="qna" type="text" name="answer" id="a" placeholder="Your Answer">
+              </div>
+            </div>
+          </div>
+          <div id="memo">
+              Memo:
+              <textarea id="memo-area" placeholder="What does this question make you think of?"></textarea>
+          </div>
+          <button id="delete">
+            Delete
+          </button>
+
+        </div>
+
+        <div id="get-answer" style="display: none">
+          <div class="page-title">
+            Get the Answer
+          </div>
+          <button class="get" id="self-answer">
+            Self-Answer
+          </button>
+          <button class="get" id="google">
+            Google
+          </button>
+          <button class="get" id="quora">
+            Quora
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="./image.js"></script>
+  </body>
+  </html>
