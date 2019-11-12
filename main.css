@@ -70,5 +70,5 @@ img {
     position: relative;
     width: 100%;
 	border: 1px solid #383838;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
 }
