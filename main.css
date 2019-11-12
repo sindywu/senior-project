@@ -14,7 +14,7 @@ button {
 }
 
 i{
-	font-size: 32px;
+	font-size: 48px;
 }
 
 #nav{
@@ -24,8 +24,10 @@ i{
     background: white;
     padding: 1%;
     z-index: 1000;
-    font-size: 24px;
-    line-height: 4;
+    font-size: 48px;
+    line-height: 3;
+    border-bottom: 1px solid #949494;
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
 }
 
 #title {
@@ -47,11 +49,13 @@ i{
 #profile {
 	width: fit-content;
 	float:right;
-	margin-right: 2%;
+	margin-right: 4%;
 }
 
 .container {
 	padding: 2%;
+	position: absolute;
+    margin-top: 17%;
 }
 
 .image {
@@ -65,5 +69,6 @@ img {
 	object-fit: cover;
     position: relative;
     width: 100%;
-	border: 1px solid darkgray;
+	border: 1px solid #383838;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
 }
