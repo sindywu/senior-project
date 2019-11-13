@@ -38,12 +38,18 @@ i{
 	width: fit-content;
 	float:left;
 	margin-left: 4%;
+	background: none;
+    	border: none;
+    	padding: 0;
 }
 
 #profile {
 	width: fit-content;
 	float:right;
 	margin-right: 4%;
+	background: none;
+    	border: none;
+    	padding: 0;
 }
 
 .inner-container {
