@@ -1,7 +1,8 @@
 body {
 	margin:0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Comfortaa', sans-serif !important;
 	font-size: 24px;
+	background: #fbfbfb;
 
 }
 
@@ -19,7 +20,7 @@ i{
 
 #nav{
 	position: fixed;
-    width: 98%;
+    width: 100%;
     display: flex;
     background: white;
     padding: 1%;
@@ -44,6 +45,7 @@ i{
 #edit {
 	width: fit-content;
 	float:left;
+	margin-left: 4%;
 }
 
 #profile {
@@ -52,7 +54,7 @@ i{
 	margin-right: 4%;
 }
 
-.container {
+.wrap {
 	padding: 2%;
 	position: absolute;
     margin-top: 17%;
@@ -66,9 +68,9 @@ i{
 }
 
 img {
-	object-fit: cover;
+	padding: 5%;
+    object-fit: cover;
     position: relative;
     width: 100%;
-	border: 1px solid #383838;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid #000000 !important;
 }

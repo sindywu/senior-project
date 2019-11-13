@@ -168,6 +168,11 @@ document.getElementById("self-answer").onclick = function(){
 
 document.getElementById("google").onclick = function(){
   window.open('http://www.google.com/search?q='+document.getElementById('q').value);
+  document.getElementById("back").click();
+  document.getElementById("get-the-answer").style["display"] = "none";
+  document.getElementById("answered").style["display"] = "";
+  document.getElementById("a").focus();
+  source = "google";
 }
 
 /*function change_pic() {

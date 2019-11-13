@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
   </head>
@@ -17,17 +20,20 @@
     <!--<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>-->
   	<script src="jquery/js/jquery-1.9.0.min.js"></script>
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <header>
       <div id="nav">
-        <button class="nav-button" id="back">Back</button>
+        <button class="nav-button" id="back"><i class="fas fa-chevron-left"></i></button>
         <div id="title">
           Journal of Questions
         </div>
-        <button class="nav-button" id="profile">Profile</button>
+        <button class="nav-button" id="profile"><i class="far fa-user"></i></button>
       </div>
     </header>
     <main>
-      <div class="container">
+      <div >
         <div id="image-page">
           <div id="cues">
             <ul class="images" id="image-cue">
@@ -52,7 +58,7 @@
             </div>
             <div id="answer">
               <div id="no-answer">
-                <button id="get-the-answer" disabled>Get the Answer</button>
+                <button id="get-the-answer" type="button" class="btn btn-primary" disabled>Get the Answer</button>
               </div>
               <div id="answered" style="display: none">
                 <input class="qna" type="text" name="answer" id="a" placeholder="Your Answer">
@@ -63,9 +69,7 @@
               Memo:
               <textarea id="memo-area" placeholder="What does this question make you think of?"></textarea>
           </div>
-          <button id="delete">
-            Delete
-          </button>
+          <button id="delete" type="button" class="btn btn-light">Delete</button>
 
         </div>
 
@@ -73,15 +77,11 @@
           <div class="page-title">
             Get the Answer
           </div>
-          <button class="get" id="self-answer">
-            Self-Answer
-          </button>
-          <button class="get" id="google">
-            Google
-          </button>
-          <button class="get" id="quora">
+          <button class="get btn btn-light" id="self-answer" type="button">Self-Answer</button>
+          <button class="get btn btn-light" id="google" type="button">Google</button>
+          <!--<button class="get" id="quora">
             Quora
-          </button>
+          </button>-->
         </div>
       </div>
     </main>
