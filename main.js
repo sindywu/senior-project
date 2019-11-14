@@ -1,3 +1,5 @@
+var user = 'username';
+
 var firebaseConfig = {
     apiKey: "AIzaSyAnSByKPSuRdbOtb1RnFEz39z6dIUfKvyM",
     authDomain: "senior-project-bfb8e.firebaseapp.com",
@@ -15,7 +17,7 @@ var database = firebase.database();
 var numImg;
 
 window.onload = function(){
-  database.ref('username').once("value").then(function(snapshot){
+  database.ref(user).once("value").then(function(snapshot){
     if(!snapshot.hasChildren()){
       document.getElementById('no-pictures').style["display"] = "";
       document.getElementById('images').style["display"] = "none";
@@ -26,7 +28,7 @@ window.onload = function(){
       var button = document.createElement('button');
       var image = document.createElement('img');
       button.className = "image";
-      image.src = "img/username/" + key + "/1.jpg";
+      image.src = "img/" + user + "/" + key + "/1.jpg";
       button.id = key;
       button.appendChild(image);
       document.getElementById("images").appendChild(button);

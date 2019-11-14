@@ -1,3 +1,5 @@
+var user = 'username';
+
 var firebaseConfig = {
     apiKey: "AIzaSyAnSByKPSuRdbOtb1RnFEz39z6dIUfKvyM",
     authDomain: "senior-project-bfb8e.firebaseapp.com",
@@ -24,7 +26,7 @@ window.onload = function(){
 	    var str = [ item.substring(0, index), item.substring(index+1)];
 	    item = str[1];
 		console.log(item);
-        database.ref('username/' + item + "/cues/imgs").once("value").then(function(snapshot){
+        database.ref(user+ '/' + item + "/cues/imgs").once("value").then(function(snapshot){
           var index = 0;
           snapshot.forEach(function(childSnapshot){
           	index++;
@@ -33,18 +35,18 @@ window.onload = function(){
           	var img = document.createElement('img');
           	img.className = "cue-image";
           	img.id = item + "-" + index;
-          	img.src = "img/username/" + item + "/" + index + ".jpg";
+          	img.src = "img/" + user + "/" + item + "/" + index + ".jpg";
           	li.appendChild(img);
           	document.getElementById('image-cue').appendChild(img);
           });          
         });
-        database.ref('username/' + item + "/cues/").once("value").then(function(snapshot){
+        database.ref(user + '/' + item + "/cues/").once("value").then(function(snapshot){
           document.getElementById('location-cue').innerHTML = "Location: " + snapshot.val().location;
           document.getElementById('emotion-cue').innerHTML = "Feeling: " + snapshot.val().feeling;
           document.getElementById('temporal-cue').innerHTML = "Date: " + snapshot.val().date;
           document.getElementById('description-cue').innerHTML = "Description: " + snapshot.val().description;
         });
-        database.ref('username/' + item + "/").once("value").then(function(snapshot){
+        database.ref(user + '/' + item + "/").once("value").then(function(snapshot){
           console.log("exists?" + snapshot.val().question);
           if(snapshot.val().question == null){
             document.getElementById("q").focus(); //CHANGE
@@ -84,7 +86,7 @@ document.getElementById("get-the-answer").onclick = function() {
 }
 
 document.getElementById("delete").onclick = function() {
-	var del = database.ref('username/' + item);
+	var del = database.ref(user + '/' + item);
 	del.remove();
 	document.getElementById("back").click();
 	//ADD USER FEEDBACK FOR DELETE
@@ -96,7 +98,7 @@ document.getElementById('q').onblur = function() {
   	var input = document.getElementById('q');
   	if(input && input.value){
   		var updates = {};
-  		updates['username/' + item + '/question'] = input.value;
+  		updates[user + '/' + item + '/question'] = input.value;
   		database.ref().update(updates);
   		document.getElementById("get-the-answer").disabled = false;
   	}
@@ -114,8 +116,8 @@ document.getElementById('a').onblur = function() {
   	var input = document.getElementById('a');
   	if(input && input.value){
   		var updates = {};
-  		updates['username/' + item + '/answer/value'] = input.value;
-  		updates['username/' + item + '/answer/source'] = source;
+  		updates[user + '/' + item + '/answer/value'] = input.value;
+  		updates[user + '/' + item + '/answer/source'] = source;
   		database.ref().update(updates);
   	}
 }
@@ -132,7 +134,7 @@ document.getElementById('memo-area').onblur = function() {
   	var input = document.getElementById('memo-area');
   	if( input && input.value){
   		var updates = {};
-  		updates['username/' + item + '/memo'] = input.value;
+  		updates[user + '/' + item + '/memo'] = input.value;
   		database.ref().update(updates);
   	}
 }
