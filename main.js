@@ -28,7 +28,7 @@ window.onload = function(){
       var button = document.createElement('button');
       var image = document.createElement('img');
       button.className = "image";
-      image.src = "img/" + user + "/" + key + "/1.jpg";
+      image.src = "img/" + user + "/" + key + "/1.png";
       button.id = key;
       button.appendChild(image);
       document.getElementById("images").appendChild(button);
