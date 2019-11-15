@@ -35,7 +35,7 @@ window.onload = function(){
           	var img = document.createElement('img');
           	img.className = "cue-image";
           	img.id = item + "-" + index;
-          	img.src = "img/" + user + "/" + item + "/" + index + ".jpg";
+          	img.src = "img/" + user + "/" + item + "/" + index + ".png";
           	li.appendChild(img);
           	document.getElementById('image-cue').appendChild(img);
           });          
