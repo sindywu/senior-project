@@ -1,4 +1,4 @@
-var user = 'username';
+var user = 'P1';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAnSByKPSuRdbOtb1RnFEz39z6dIUfKvyM",
