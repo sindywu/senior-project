@@ -29,15 +29,15 @@
         <div id="title">
           Journal of Questions
         </div>
-        <button class="nav-button" id="profile"><i class="far fa-user"></i></button>
+        <button class="nav-button" id="delete"><i class="far fa-trash-alt"></i></button>
       </div>
     </header>
     <main>
-      <div >
+      <div>
         <div id="image-page">
           <div id="cues">
-            <div class="title">
-            In that moment
+            <div id="journal-title">
+          
           </div>
             <ul class="images" id="image-cue">
             </ul>
@@ -48,44 +48,54 @@
             <div class="cue" id="emotion-cue">
 
             </div>
-            <div class="cue" id="temporal-cue">
-
-            </div>
             <div class="cue" id="description-cue">
 
             </div>
           </div>
           <div class="inner-container">
-            <div id="question">
-              <input class="qna" type="text" name="question" id="q" placeholder="Your Question">
+            <div id="question" class="qna">
+              <div class="textarea" id="q" contenteditable="true" placeholder="What was your question in this moment?"></div>
             </div>
-            <div id="answer">
+            <div id="answer" class="qna">
               <div id="no-answer">
-                <button id="get-the-answer" type="button" class="btn btn-primary" disabled>Get the Answer</button>
+                <div style="padding-bottom: 3%;">
+                  How do you want to answer?
+                </div>
+                <button class="get btn btn-light" id="self-answer" type="button">Self-Answer</button>
+                <button class="get btn btn-light" id="google" type="button">Google</button>
+                <button class="get btn btn-light" id="reddit" type="button">reddit</button>
+                <div class="cancel">
+                  <button id="cancel-source" type="button" class="btn btn-link" style="display: none">Cancel</button>
+                </div>
               </div>
               <div id="answered" style="display: none">
-                <input class="qna" type="text" name="answer" id="a" placeholder="Your Answer">
+                <div class="textarea" id="a" contenteditable="true" placeholder="What is your answer?"></div>
+                <div class="textarea" id="b" contenteditable="true" placeholder="What did you find out?"></div>
               </div>
+            </div>
+            <div id="source" contenteditable="false" style="display: none"></div>
+            <div class="change-source">
+              <button id="change-source" type="button" class="btn btn-link" style="display: none">Change Answer Source</button>
             </div>
           </div>
           <div id="memo">
-              Memo:
-              <textarea id="memo-area" placeholder="What does this question make you think of?"></textarea>
+              Reflection:
+              <textarea id="memo-area" placeholder="What thoughts do you have on this journal entry?"></textarea>
           </div>
-          <button id="delete" type="button" class="btn btn-light">Delete</button>
-
+          <diV>
+            <button id="submit" type="button" class="btn btn-success">Save</button>
+          </diV>
         </div>
-
-        <div id="get-answer" style="display: none">
-          <div class="page-title">
-            Get the Answer
-          </div>
-          <button class="get btn btn-light" id="self-answer" type="button">Self-Answer</button>
-          <button class="get btn btn-light" id="google" type="button">Google</button>
-          <!--<button class="get" id="quora">
-            Quora
-          </button>-->
-        </div>
+         <!-- The Modal -->
+    <div id="myModal" class="modal" style="display: none">
+      <!--<span class="close">&times;</span>-->
+      <div class="inner-container2">
+        
+        Are you sure you want to delete this journal entry?
+        <button class="delete btn btn-light" id ="delete2" type = "button">Delete</button>
+         <button class="delete btn btn-light" id ="cancel" type = "button">Cancel</button>
+      </div>
+    </div>
       </div>
     </main>
     <script src="./image.js"></script>

@@ -11,7 +11,7 @@ button {
 	background: none;
     border: none;
     padding: 0;
-    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
 }
 
 i{
@@ -55,22 +55,51 @@ i{
 }
 
 .wrap {
-	padding: 2%;
+	//padding: 2%;
 	position: absolute;
     margin-top: 17%;
+    width: 100%;
 }
 
 .image {
 	width: 100%;
 	margin: 0 auto;
     display: block;
+    padding: 3%;
     margin-bottom: 2%;
 }
 
 img {
-	padding: 5%;
+	//padding: 3%;
     object-fit: cover;
     position: relative;
-    width: 100%;
-    border: 1px solid #000000 !important;
+    width: 875px;
+    //border: 1px solid #000000 !important;
+    //background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3%;
+    background: white;
+    height: 800px;
+}
+
+#unanswered {
+	background: #007bff2b;
+	padding: 2%;
+	text-align: center;
+	font-size: 48px;
+}
+
+#answered {
+	padding: 2%;
+	text-align: center;
+	font-size: 48px;
+}
+
+#no-pictures {
+	text-align: center;
+    font-size: 48px;
+    padding: 5%;
+    padding-top: 15%;
+    line-height: 1.8;
 }

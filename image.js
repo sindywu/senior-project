@@ -1,4 +1,4 @@
-var user = 'P7';
+var user = 'username';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAnSByKPSuRdbOtb1RnFEz39z6dIUfKvyM",
@@ -14,7 +14,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 console.log(firebase.app().name);
 var database = firebase.database();
-var getAnswer = false;
 var item;
 var source;
 var listImg = [];
@@ -43,7 +42,7 @@ window.onload = function(){
         database.ref(user + '/' + item + "/cues/").once("value").then(function(snapshot){
           document.getElementById('location-cue').innerHTML = "Location: " + snapshot.val().location;
           document.getElementById('emotion-cue').innerHTML = "Feeling: " + snapshot.val().feeling;
-          document.getElementById('temporal-cue').innerHTML = "Date: " + snapshot.val().date;
+          document.getElementById('journal-title').innerHTML = snapshot.val().date;
           document.getElementById('description-cue').innerHTML = "Description: " + snapshot.val().description;
         });
         database.ref(user + '/' + item + "/").once("value").then(function(snapshot){
@@ -52,15 +51,25 @@ window.onload = function(){
             document.getElementById("q").focus(); //CHANGE
           }
           else{
-            document.getElementById("q").value = snapshot.val().question;
+            document.getElementById("q").innerHTML = snapshot.val().question;
             console.log("exists?child" + snapshot.child("answer/value").val());
             if(snapshot.child("answer/value").val() == null){
-            	document.getElementById("get-the-answer").disabled = false;
+
             }
             else{
               document.getElementById("no-answer").style["display"] = "none";
               document.getElementById("answered").style["display"] = "";
-              document.getElementById("a").value = snapshot.child("answer/value").val();
+              document.getElementById("source").innerHTML = snapshot.child("answer/source").val();
+              document.getElementById("change-source").style["display"] = "";
+              document.getElementById("source").style["display"] = "";
+              if(snapshot.child("answer/source").val() == "Self-Answer"){
+                document.getElementById("a").innerHTML = snapshot.child("answer/value").val();
+                document.getElementById("b").style["display"] = "none";
+              }
+              else {
+                document.getElementById("b").innerHTML = snapshot.child("answer/value").val();
+                document.getElementById("a").style["display"] = "none";
+              }
             }
           }
           if(snapshot.val().memo != null) {
@@ -79,16 +88,12 @@ function ready() {
     change_pic();
 }
 
-document.getElementById("get-the-answer").onclick = function() {
-  document.getElementById("get-answer").style["display"] = "";
-  document.getElementById("image-page").style["display"] = "none";
-  getAnswer = true;
-}
-
 document.getElementById("delete").onclick = function() {
-	var del = database.ref(user + '/' + item);
-	del.remove();
-	document.getElementById("back").click();
+  document.getElementById('myModal').style["display"] = "";
+	/*var del = database.ref(user + '/' + item);
+	del.remove();*/
+
+	//document.getElementById("back").click();
 	//ADD USER FEEDBACK FOR DELETE
 
 }
@@ -96,11 +101,11 @@ document.getElementById("delete").onclick = function() {
 document.getElementById('q').onblur = function() {
   	console.log("outside input");
   	var input = document.getElementById('q');
-  	if(input && input.value){
+  	if(input && input.innerHTML != ""){
   		var updates = {};
-  		updates[user + '/' + item + '/question'] = input.value;
+  		updates[user + '/' + item + '/question'] = input.innerHTML;
   		database.ref().update(updates);
-  		document.getElementById("get-the-answer").disabled = false;
+  		
   	}
 }
 
@@ -114,18 +119,39 @@ document.getElementById('q').addEventListener("keyup", function(event) {
 document.getElementById('a').onblur = function() {
   	console.log("outside input");
   	var input = document.getElementById('a');
-  	if(input && input.value){
+  	if(input && input.innnerHTML != ""){
   		var updates = {};
-  		updates[user + '/' + item + '/answer/value'] = input.value;
-  		updates[user + '/' + item + '/answer/source'] = source;
+  		updates[user + '/' + item + '/answer/value'] = input.innerHTML;
+  		updates[user + '/' + item + '/answer/source'] = document.getElementById("source").innerHTML;
   		database.ref().update(updates);
   	}
+
+}
+
+document.getElementById('b').addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+      	document.getElementById('b').blur();
+      }
+ });
+
+document.getElementById('b').onblur = function() {
+    console.log("outside input");
+    var input = document.getElementById('b');
+    if(input && input.innnerHTML != ""){
+      var updates = {};
+      updates[user + '/' + item + '/answer/value'] = input.innerHTML;
+      updates[user + '/' + item + '/answer/source'] = document.getElementById("source").innerHTML;
+      database.ref().update(updates);
+    }
+    
+
 }
 
 document.getElementById('a').addEventListener("keyup", function(event) {
       event.preventDefault();
       if (event.keyCode === 13) {
-      	document.getElementById('a').blur();
+        document.getElementById('a').blur();
       }
  });
 
@@ -147,34 +173,83 @@ document.getElementById('memo-area').addEventListener("keyup", function(event) {
  });
 
 document.getElementById("back").onclick = function() {
-  if(getAnswer){
-  	getAnswer = false;
-  	document.getElementById("get-answer").style["display"] = "none";
-  	document.getElementById("image-page").style["display"] = "";
-  }
-  else
   	history.back();
 }
 
-document.getElementById("profile").onclick = function() {
-  
+document.getElementById("submit").onclick = function() {
+  window.location.href = 'index.html';
+}
+
+document.getElementById("change-source").onclick = function() {
+  document.getElementById("no-answer").style["display"] = "";
+  document.getElementById("answered").style["display"] = "none";
+  document.getElementById("change-source").style["display"] = "none";
+  document.getElementById("source").style["display"] = "none";
+  document.getElementById("cancel-source").style["display"] = ""
+}
+
+document.getElementById("cancel-source").onclick = function() {
+  document.getElementById("no-answer").style["display"] = "none";
+  document.getElementById("answered").style["display"] = "";
+  document.getElementById("change-source").style["display"] = "";
+  document.getElementById("source").style["display"] = "";
+  document.getElementById("cancel-source").style["display"] = "none"
 }
 
 document.getElementById("self-answer").onclick = function(){
-  document.getElementById("back").click();
-  document.getElementById("get-the-answer").style["display"] = "none";
+  document.getElementById("no-answer").style["display"] = "none";
   document.getElementById("answered").style["display"] = "";
+  document.getElementById("change-source").style["display"] = "";
+  document.getElementById("source").style["display"] = "";
   document.getElementById("a").focus();
-  source = "self-answer";
+  //document.getElementById("a").innerHTML = "What is your answer?";
+  //document.getElementById("a").style["color"] = "#757575";
+
+   document.getElementById("a").style["display"] = "";
+   document.getElementById("b").style["display"] = "none";
+  source = "Self-Answer";
+  document.getElementById("source").innerHTML = source;
 }
 
 document.getElementById("google").onclick = function(){
   window.open('http://www.google.com/search?q='+document.getElementById('q').value);
-  document.getElementById("back").click();
-  document.getElementById("get-the-answer").style["display"] = "none";
+  document.getElementById("no-answer").style["display"] = "none";
   document.getElementById("answered").style["display"] = "";
+  document.getElementById("change-source").style["display"] = "";
+  document.getElementById("source").style["display"] = "";
   document.getElementById("a").focus();
-  source = "google";
+  //document.getElementById("a").innerHTML = "What did you find out?";
+  //document.getElementById("a").style["color"] = "#757575";
+  document.getElementById("b").style["display"] = "";
+  document.getElementById("a").style["display"] = "none";
+  source = "Google";
+  document.getElementById("source").innerHTML = source;
+}
+
+document.getElementById("reddit").onclick = function(){
+  window.open('https://www.reddit.com/');
+  document.getElementById("no-answer").style["display"] = "none";
+  document.getElementById("answered").style["display"] = "";
+  document.getElementById("change-source").style["display"] = "";
+  document.getElementById("source").style["display"] = "";
+  document.getElementById("a").focus();
+  //document.getElementById("a").innerHTML = "What did you find out?";
+  //document.getElementById("a").style["color"] = "#757575";
+  document.getElementById("b").style["display"] = "";
+  document.getElementById("a").style["display"] = "none";
+  source = "reddit";
+  document.getElementById("source").innerHTML = source;
+}
+
+document.getElementById("delete2").onclick = function() {
+  var del = database.ref(user + '/' + item);
+  del.remove();
+
+  document.getElementById("back").click();
+}
+
+document.getElementById("cancel").onclick = function() {
+  document.getElementById('myModal').style["display"] = "none";
 }
 
 /*function change_pic() {

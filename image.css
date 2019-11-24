@@ -43,7 +43,7 @@ i{
     padding: 0;
 }
 
-#profile {
+#delete {
 	width: fit-content;
 	float:right;
 	margin-right: 4%;
@@ -66,48 +66,41 @@ i{
 img {
 	object-fit: cover;
     position: relative;
-    width: 80%;
+    //width: 900px;
+    height: 900px;
 	border: 1px solid darkgray;
 	margin-right: 2%;
 }
 
 #cues {
 	height: fit-content;
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     //padding: 2%;
     padding-top: 20%;
     background: #007bff2b;
 }
 
 .cue {
-	margin: 2% 3%;
+	margin: 3% 3%;
 }
 
 #location-cue {
-	margin-bottom: 1.5%;
-	margin-top: 3%;
+	margin-top: 5%;
 }
 
-#emotion-cue {
-	margin-top: 0;
-}
-
-#answer {
-	width: 100%;
-    margin: 0;
-    border: 2px solid transparent;
+#no-answer {
+    padding: 8%;
 }
 
 .qna {
 	width: 100%;
     text-align: center;
     /* border: none; */
-    height: 50vw;
-    margin-bottom: 2%;
+    min-height: 50vw;
+    margin-bottom: 7%;
     border: 1px solid #5a5a5a;
     border-radius: 8px;
     font-size: 48px;
-
 }
 
 #get-the-answer {
@@ -121,7 +114,7 @@ img {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
 }
 
-#delete {
+#submit {
 	width: 100%;
 	padding: 4%;
     font-size: 40px;
@@ -181,8 +174,115 @@ ul.images li {
     margin-bottom: 1%;
 }
 
-.title {
-	font-size: 48px;
-	text-align: center;
-	margin-bottom: 2%;
+#journal-title {
+	margin-top: 1%;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+#question, #answered {
+    display: table;
+}
+
+#question {
+    margin-top: 5%;
+}
+
+#answer {
+    margin-bottom: 3%;
+}
+
+.textarea {
+    display: table-cell; 
+    vertical-align: middle;
+}
+
+.textarea[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #757575; 
+}
+
+#answered {
+    width: 100%;
+    min-height: 50vw;
+    //margin-top: 17%;
+}
+
+.change-source {
+    width: fit-content;
+    margin: 5% auto;
+    margin-top: 0%;
+
+}
+
+#change-source, #cancel-source {
+    font-size: 40px;
+}
+
+.cancel {
+    margin-top: 5%;
+    margin-bottom: 0%;
+}
+
+#source {
+    font-size: 40px;
+    padding: 0 2%;
+    //padding-top: 0; 
+    //padding-bottom: 17%;
+    color: black;
+    text-align: center;
+
+}
+
+/* The Modal (background) */
+#myModal {
+    display: block;
+  position: fixed; /* Stay in place */
+  z-index: 1050; /* Sit on top */
+  //padding-top: 30px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.22); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  //width: 70%;
+  max-width: 90%;
+  height: 500px;
+  //height: auto;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.inner-container2 {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    padding: 5%;
+    text-align: center;
+}
+
+.delete {
+    display: block;
+    width: 100%;
+    font-size: 40px !important;
+    margin-top: 4%;
+    /* border-top: 1px solid black !important; */
+    /* background: white !important; */
+    padding: 4% !important;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+#delete2 {
+    color: #dc3545;
 }

@@ -1,4 +1,4 @@
-var user = 'P7';
+var user = 'username';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAnSByKPSuRdbOtb1RnFEz39z6dIUfKvyM",
@@ -22,6 +22,10 @@ window.onload = function(){
       document.getElementById('no-pictures').style["display"] = "";
       document.getElementById('images').style["display"] = "none";
     }
+    else {
+      document.getElementById('no-pictures').style["display"] = "none";
+      document.getElementById('images').style["display"] = "";
+    }
     snapshot.forEach(function(childSnapshot){
       var key = childSnapshot.key;
       console.log(key);
@@ -31,7 +35,15 @@ window.onload = function(){
       image.src = "img/" + user + "/" + key + "/1.png";
       button.id = key;
       button.appendChild(image);
-      document.getElementById("images").appendChild(button);
+      console.log(childSnapshot.val().question);
+      if(childSnapshot.val().question == null){
+        document.getElementById("unanswered").appendChild(button);
+        document.getElementById("unanswered").style["display"] = "";
+      }
+      else {
+        document.getElementById("answered").appendChild(button);
+        document.getElementById("answered").style["display"] = "";
+      }
     });
     var items = document.getElementsByClassName("image");
     for(var i = 0; i < items.length; i++){
