@@ -212,7 +212,7 @@ document.getElementById("self-answer").onclick = function(){
 }
 
 document.getElementById("google").onclick = function(){
-  window.open('http://www.google.com/search?q='+document.getElementById('q').value);
+  window.open('http://www.google.com/search?q='+document.getElementById('q').innerHTML);
   document.getElementById("no-answer").style["display"] = "none";
   document.getElementById("answered").style["display"] = "";
   document.getElementById("change-source").style["display"] = "";
